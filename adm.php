@@ -2,12 +2,6 @@
 	require_once('inc/config.inc.php');
 	require_once('inc/common.inc.php');
 	
-/*	$O = new Account('admin', 'admin');
-	if ($O->auth())
-		echo "Ниибацца!";
-	else
-		echo "Хуй-та...";
-*/
 	
 	$coockieAuth = false;
 	debug($_REQUEST,'---');
@@ -44,18 +38,6 @@
 		return $html;
 	}
 	
-/*	ХЗ чё и откуда...
- * 
- * function tree($a, &$prefix = ''){
-		$size = count($a);
-		foreach ($a as $k=>$v){
-			$prefix .= '&nbsp;&nbsp;&nbsp;&nbsp;';
-			$html .=($prefix == '&nbsp;&nbsp;&nbsp;&nbsp;' ? '<p>' : '').$prefix.
-					$v['name'].' - '.$v['count'].
-					'<br />'.tree($v['childNodes'], $prefix);
-		}
-		return $html; 
-	}*/
 //======================================================================================
 	function seltree($a, $level = ''){
 		$size = count($a);
@@ -92,10 +74,6 @@
 			$Ghtml = file_get_contents(dirname(__FILE__).'/studentlist.html');
 			if ($O->auth($coockieAuth)){
 //-----------------------------------------------------------------------------------------				
-/*	echo '<pre>';
-	var_dump($GLOBALS);
-	echo '</pre>';
-*/
 				//$html = '<p>Всего заявок, ожидающих рассмотрения - '.count($rows).'.</p>';
 				if ($_REQUEST['act'] == 'showaccept'){
 					$query = "SELECT ?_group.id AS ARRAY_KEY, ?_group.name AS gname, (SELECT COUNT(*) FROM ?_cmanage WHERE ?_cmanage.group = ?_group.id) AS scount FROM ?_group, ?_gmanage WHERE ?_group.id = ?_gmanage.`group` AND ?_gmanage.course = ?d ORDER BY ?_group.name";

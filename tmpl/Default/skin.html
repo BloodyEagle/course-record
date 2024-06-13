@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+ [%HEADERS%]
+</head>
+<body>
+<div style="text-align: center" class="nav">
+	.::
+	<mainpage>
+	<a href="/">Главная</a> |
+	</mainpage>
+   <a href="#" onclick="if ( $('#authblock').is(':hidden') ) $('#authblock').fadeIn('slow'); else $('#authblock').fadeOut('slow');" title="Войти в систему">Авторизация</a>
+	|
+<!--
+	<a href="#" onclick="document.getElementById('regblock').style.display = 'block';" title="Зарегистрироваться">Регистрация</a>
+	|
+	-->
+	<a href="/Reports/1">Поиск детей</a>
+	|
+	<a href="/Reports/2">Поиск учителей</a>
+	|
+	<a href="/Reports/">Отчеты</a>
+	|
+	<a href="/Edit/addChildForm">Добавить ученика</a>
+	|
+	<a href="/Edit/getDirectory">Справочники</a>
+<!--	|
+	<a href="/Edit/errorFuck" style="color: red;">Исправить школы!</a>
+-->
+	::.
+</div>
+<div class="authblock" id="authblock">
+<div id="rounded-box-3">
+    <b class="r3"></b><b class="r1"></b><b class="r1"></b>
+    <div class="inner-box" style="text-align: center">
+		<div style="text-align: right" class="closebutton"><a href="#" onclick="$('#authblock').fadeOut('slow');" style="text-decoration: none;" title="Закрыть">x</a></div>    
+        [%AUTHFORM%]        
+      </div>
+    <b class="r1"></b><b class="r1"></b><b class="r3"></b>
+</div>
+</div>
+
+<div id="rounded-box-3">
+    <b class="r3"></b><b class="r1"></b><b class="r1"></b>
+    <div class="inner-box">
+      <div class="contentmodule">
+      	[%BODY%]
+      </div>
+    </div>
+    <b class="r1"></b><b class="r1"></b><b class="r3"></b>
+</div>
+
+</body>
+</html>

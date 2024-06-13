@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script  type="text/javascript" src="/cr/js/sys/jquery-1.3.2.min.js"></script>
+<script  type="text/javascript">
+	$(document).ready(function(){
+		
+		$('#recToCourse').click(function(){
+			$('#recform').show();
+		});
+		
+		$("input:enabled[type$='text']").change( function() {
+			var ok = true;
+			$("input:enabled[type$='text']").each(function(){
+				if ($(this).val() == '') ok = false;
+			});
+			if (ok == true) $('#send').removeAttr("disabled");
+			else $('#send').attr("disabled","disabled");
+		});
+		
+		$("input:enabled[type$='text']").keyup( function() {
+			var ok = true;
+			$("input:enabled[type$='text']").each(function(){
+				if ($(this).val() == '') ok = false;
+			});
+			if (ok == true) $('#send').removeAttr("disabled");
+			else $('#send').attr("disabled","disabled");
+		});
+		
+		$('#noemail').change(function(){
+			if ($(this).is(':checked')){
+				$('#email').attr('disabled', 'disabled');
+			}else{
+				$('#email').removeAttr('disabled');
+			}
+			var ok = true;
+			$("input:enabled[type$='text']").each(function(){
+				if ($(this).val() == '') ok = false;
+			});
+			if (ok == true) $('#send').removeAttr("disabled");
+			else $('#send').attr("disabled","disabled");
+		});
+		//CODE
+	});
+</script>
+<style type="text/css">
+div.descmain {
+  background: #eee;
+  margin: 10px;
+  padding: 15px;
+  padding-right: 50px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  line-height: 1.4em;
+}
+div.r_f {
+  background: #ddd;
+  margin: 10px;
+  padding: 15px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  line-height: 1.4em;
+}
+h1 {  
+	line-height: 1.5em;
+}
+#school {
+	width: 450px;
+}
+#birthday {
+	width: 40px;
+}
+#email {
+	width: 200px;
+}
+
+</style>
+<title>Описание выбранного курса</title>
+</head>
+<body>
+<div class="descmain">
+<p id="cdesc"><#COURSE#></p>
+<div id="recform" style="display:none;">
+<div id="ddd">
+<p>Введите свои данные в поля, расположенные ниже.<br />
+Вводите реальный адрес электронной почты! На этот адрес поступит уведомление о результатах рассмотрения вашей заявки.<br />
+Внимание! Все заявки проходят модерацию, если вас приняли на курс, вы получите сообщение по электронной почте.<br>
+<span style="color: red;">Все поля  обязательны к заполнению! Заявки без каких-либо данных не рассматриваются!</span></p>
+<p><span style="color: blue; "><strong>Заполняя и отправляя заявку, вы подтверждаете, что вы информировали о ней вашего методиста отдела образования и администрацию своего учебного заведения!</strong></span></p>
+</div>
+<div class="r_f">
+<form action="/cr/index.php?action=rec&amp;cat=~#~" method="post"
+ id="form">
+  <table style="text-align: left; width: 100%;" border="0"
+ cellpadding="2" cellspacing="2">
+    <tbody id="fio">
+      <tr>
+        <td style="vertical-align: middle; text-align: right; width: 50%;">Фамилия&nbsp;</td>
+        <td style="vertical-align: middle; width: 50%;"><input id="fname" name="fname" type="text" /></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Имя&nbsp;</td>
+        <td valign="middle"><input id="name" name="name" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Отчество&nbsp;</td>
+        <td valign="middle"><input id="sname" name="sname" type="text"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: middle; text-align: right; width: 50%;">Регион&nbsp;</td>
+        <td style="vertical-align: middle; width: 50%;" valign="middle"><input id="region" name="region" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">&nbsp;Город или район&nbsp;</td>
+        <td valign="middle"><input id="city" name="city" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Учреждение образования&nbsp;</td>
+        <td valign="middle"><input id="school" name="school" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Должность&nbsp;</td>
+        <td valign="middle"><input id="status" name="status" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">&nbsp;Категория&nbsp;</td>
+        <td valign="middle"><select name="category" id="category">
+        <option value="2">Вторая категория</option>
+        <option value="1">Первая категория</option>
+        <option value="0">Высшая категория</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">&nbsp;Стаж&nbsp;</td>
+        <td valign="middle"><input name="stage" id="stage" maxlength="2" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Год рождения</td>
+        <td valign="middle"><input id="birthday" name="birthday" maxlength="4" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">Телефон&nbsp;</td>
+        <td valign="middle"><input id="phone" name="phone" type="text"></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: middle; text-align: right;">E-mail</td>
+        <td valign="middle"><input name="email" id="email" type="text">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="1" style="vertical-align: middle; text-align: center;"><label><input value="1" name="noemail" id="noemail" type="checkbox"> У меня нет электронной почты</label></td>
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="1" style="vertical-align: middle; text-align: center;"><label><input id="hotel" name="hotel" type="checkbox">Нуждаетесь в общежитии</label></td>
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="1" style="vertical-align: middle; text-align: center;"><input value="Отправить заявку" disabled="disabled" id="send" type="submit"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</form>
+
+</div>
+</div><br>
+<a href="javascript:history.back()">Вернуться на предыдущую страницу</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script  type="text/javascript" src="/cr/js/sys/jquery-1.3.2.min.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){
+	$(".jq").click(function(e){
+		$('#list').load( $(this).attr('href'));
+	    $('#list').css({left: e.pageX-300+"px", top: e.pageY+"px"}).show();
+	    $('#list > a').click(function(){
+	    	   	
+    	});
+	});
+});
+</script>
+<style type="text/css">
+div.descmain {
+  background: #eee;
+  margin: 10px;
+  padding: 5px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+div.nav {
+	float: right;
+	margin-right: -25px;
+}
+.imgnav {
+	height: 16px;
+	background-image: url(img/ico1.png);
+	background-repeat: no-repeat;
+	width: 16px;
+	overflow: hidden;
+	position: relative;
+	top: 4px;
+}
+.addcat {
+	background-position: -64px 0;
+}
+.add {
+	background-position: 0px 0;
+}
+.edit {
+	background-position: -16px 0;
+}
+.del {
+	background-position: -32px 0;
+}
+.list {
+	background-position: -48px 0;
+}
+.slist {
+	background-position: -96px 0;
+}
+.reg {
+	background-position: -80px 0;
+}
+.arch {
+	background-position: -112px 0;
+}
+.dlist {
+	background-position: -128px 0;
+}
+.sort {
+	font-size: small;
+	text-align: center;
+	}
+.course {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.cnav {
+  margin-top: 10px;
+  width: 37px;
+  height: 37px;
+  float: left;
+}
+.cnav2 {
+width: 37px;
+height: 37px;
+float: right;
+margin-top: -3.5em;
+}
+#addc {
+  display: block;
+  border-style: solid;
+  border-color: #e8e8e8 #e8e8e8 #cccccc #cccccc;
+  border-width: medium;
+  background-color: #d6d6d6;
+  text-decoration: none;
+  width: 200px;
+  float: right;
+}
+em {
+	font-style: italic;
+	font-size: small;
+}
+td, th {
+	border: thin solid #cccccc;
+}
+#list {
+  padding: 10px;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  overflow: scroll;
+  font-size: small;
+  line-height: 1.5em;
+  background: #ddd;
+  display: none;  
+}
+
+</style>
+<title>Список курсов раздела</title>
+</head>
+<body>
+<#NAV#>
+<div class="descmain">
+<a id="addc" href="/cr/adm.php?act=addchecker"><img class="imgnav add" src="img/1x1.gif" title="Добавить пользователя"> Добавить пользователя</a>
+<#LIST#>
+</div>
+<div id="list" class="descmain"><#ULIST#></div>
+<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

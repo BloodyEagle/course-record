@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script  type="text/javascript" src="/cr/js/sys/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/cr/js/ui/ui.core.js"></script>
+<script type="text/javascript" src="/cr/js/ui/ui.datepicker.js"></script>
+<script type="text/javascript" src="/cr/js/ui/dp-ru.js"></script>
+<script language="javascript" type="text/javascript" src="/cr/js/ui/ui.draggable.js"></script>
+<script language="javascript" type="text/javascript" src="/cr/js/ui/ui.resizable.js"></script>
+<script language="javascript" type="text/javascript" src="/cr/js/ui/ui.dialog.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){
+	 $(".date").datepicker();
+	 //CODE
+	});
+</script>
+<link rel="stylesheet" href="/cr/tmpl/Default/ui.theme.css" type="text/css" />
+<link rel="stylesheet" href="/cr/tmpl/Default/ui.dialog.css" type="text/css" />
+<style type="text/css">
+body {
+  line-height: 1.5em;
+}
+div.descmain {
+  background: #eee;
+  margin: 10px;
+  padding: 5px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+.center {
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+  padding-bottom: 1.2em;
+}
+input.long {
+  width: 50%;
+}
+input.short {
+  width: 8%;
+}
+
+textarea {
+  position: relative;
+  width: 150%;
+  margin-left: -25%;
+  height: 15em;
+  background-color: #e9e9e9;
+}
+input {
+  background-color: #e9e9e9;
+}
+
+</style>
+<title>Добавление курса</title>
+</head>
+<body>
+<#NAV#>
+<div class="descmain">
+<form enctype="multipart/form-data" method="post" action="/cr/adm.php?act=createcourse">
+<input type="hidden" name="parent" value="<#PARENT#>" />
+  <div class="center">Введите название курса <input name="name" class="long"><br>
+Введите категорию слушателей <input name="predmet" class="long"></div>
+  <div class="center">Введите дату начала и окончания курса <input name="start" class="short date"> — <input name="stop" class="short date"></div>
+  <div class="center">Введите количество часов курса <input size="3" name="hours" class="short"><br>
+Введите Ф.И.О. руководителя курсов <input name="curator" class="long"></div>
+  <div class="center"><label><input name="regclosed" type="checkbox">Закрыть регистрацию на курс</label><br><br>
+Введите описание курса. <small><br>
+Чем подробнее будет описание, тем больше вероятность заинтересовать курсами целевую аудиторию.</small><br>
+  <textarea name="note" id="note"></textarea><br>
+  <input value="Добавить курс" type="submit" id="send"></div>
+</form>
+
+</div>
+</body>
+</html>

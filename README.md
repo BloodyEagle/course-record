@@ -1,2 +1,2 @@
 # course-record
- old system of recording to courses
+ Старая система записи на курсы. Написана на PHP 5 году этак в 2009. Дата создания файлов от 2007 до 2016...

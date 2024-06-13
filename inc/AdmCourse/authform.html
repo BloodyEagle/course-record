@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+div.descmain {
+  background: #eee;
+  margin-left: -200px;
+  padding: 5px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  line-height: 1.4em;
+  width: 400px;
+}
+div.w {
+	margin-left: 50%;
+}
+.center {
+	text-align: center;
+}
+body {
+	margin-top: 50px;
+}
+</style>
+<title>Вход</title>
+</head>
+<body>
+<div class="w">
+<div class="descmain center">
+<p>Для начала работы вам необходимо войти.</p>
+<form action="/cr/adm.php?act=login" method="post">
+	<label>&nbsp;Логин: <input type="text" name="user"></input></label><br>
+	<label>Пароль: <input type="password" name="pass"></input></label><br>
+	<input type="submit" value="Войти"></input><br>&nbsp;
+</form>
+</div>
+</div>
+</body>
+</html>

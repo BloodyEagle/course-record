@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script  type="text/javascript" src="/cr/js/sys/jquery-1.3.2.min.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){
+	$('#removecat').click(function(){
+		if ($(this).is(':checked')){
+			$('#catlist').show();
+		}
+		else{
+			$('#catlist').hide();
+		}
+	});
+});
+</script>
+<style type="text/css">
+body {
+  line-height: 1.4em;
+}
+div.descmain {
+  background: #eee;
+  margin: 10px;
+  padding: 5px;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+#catlist {
+  display: none;
+}
+
+</style>
+<title>Изменение категории</title>
+</head>
+<body>
+<#NAV#>
+<div class="descmain">
+<form method="post" action="/cr/adm.php?act=changecat">
+Наименование категории<br>
+  <input name="cname" size="100" value="<#NAME#>">
+  <input name="cat" type="hidden" value="<#CAT#>"><br /><br />
+  <label><input name="removecat" id="removecat" value="yes" type="checkbox"> Переместить категорию в другой раздел</label>
+  <div id="catlist">
+  	<select size="1" name="selcat">
+  		<#LIST#>
+  	</select>  
+  </div>
+  <br /><input type="submit" value="Применить" />
+</form>
+</div>
+</body>
+</html>

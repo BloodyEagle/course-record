@@ -1,0 +1,6 @@
+<Files adm.php>
+require valid-user
+AuthName "Restricted Area"
+AuthType Basic
+AuthUserFile /home/pedagog13/public_html/cr/inc/.htpasswd
+</Files>
